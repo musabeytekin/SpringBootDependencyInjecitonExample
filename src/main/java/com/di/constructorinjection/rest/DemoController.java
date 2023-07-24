@@ -1,14 +1,17 @@
-package com.di.constructorinjection;
+package com.di.constructorinjection.rest;
 
+import com.di.constructorinjection.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
     private Coach coach;
+
     @Autowired
-    public DemoController(Coach coach) {
+    public DemoController(@Qualifier("trackCoach") Coach coach) {
         this.coach = coach;
     }
 
